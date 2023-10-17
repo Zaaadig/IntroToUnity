@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _rotationSpeed = 15.0f; // 15 unités par seconde
 
+    private bool _isWalking = false;
+
+    public bool IsWalking { get => _isWalking; set => _isWalking = value; }
+
     private void Update()
     {
         Vector2 lInputVector = new Vector2(0.0f, 0.0f);
@@ -31,6 +35,8 @@ public class Player : MonoBehaviour
         }
         lInputVector = lInputVector.normalized;
 
+        IsWalking = lInputVector.magnitude > 0.0f;
+
         // Direction
         Vector3 lDirection = new Vector3(lInputVector.x, 0.0f, lInputVector.y);        
         
@@ -41,4 +47,6 @@ public class Player : MonoBehaviour
         //transform.forward = lDirection;
         transform.forward = Vector3.Slerp(transform.forward, lDirection, _rotationSpeed * Time.deltaTime); // pas bien, mais on en reparlera
     }
+
+
 }
