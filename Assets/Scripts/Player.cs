@@ -27,22 +27,49 @@ public class Player : MonoBehaviour
 
         // # Détection de collision
         // 1ere version de la detection de collision
-        float lDetectionDistance = .8f; // rayon de 80cm de long
-        
-        Vector3 lDetectionOrigin = transform.position;
-        lDetectionOrigin.y += .5f;      // on décale le rayon de 50cm vers le haut pour qu'il parte du centre de la capsule
-        bool lHitSomething = Physics.Raycast(lDetectionOrigin, lDirection, out RaycastHit raycastHit, lDetectionDistance );
-        // visualisation du rayon de détection
-        //Debug.DrawRay(lDetectionOrigin, lDirection * lDetectionDistance, Color.yellow, 1/60);
+        float lDetectionDistance = SpeedInMeterPerSecond * Time.deltaTime; // on calcule le prochain déplacement du joueur
+        float lPlayerRadius = .5f; // le joueur a un rayon de 50cm
+        Vector3 lPoint2 = transform.position + (Vector3.up * 1.8f); // capsule de 1.8m de haut
+        bool lHitSomething = Physics.CapsuleCast(transform.position, lPoint2, lPlayerRadius, lDirection, out RaycastHit raycastHit, lDetectionDistance);
 
+        // visualisation du rayon de détection
+        //Debug.DrawRay(lPoint2, lDirection * lPlayerRadius, Color.yellow, 1/60);
 
         // on peut bouger si on a rien touché ou si on a touché un trigger
         bool lCanMove = (lHitSomething == false) || (raycastHit.collider.isTrigger == true);
 
+        if (lCanMove == false)
+        {
+            Vector3 moveDirX = new Vector3(lDirection.x, 0, 0).normalized;
+            lHitSomething = Physics.CapsuleCast(transform.position, lPoint2, lPlayerRadius, moveDirX, lDetectionDistance);
+
+            if (lHitSomething == false)
+            {
+                lDirection = moveDirX;
+                lCanMove = true;
+            }
+            else
+            {
+                Vector3 moveDirZ = new Vector3(0, 0, lDirection.z).normalized;
+                lHitSomething = Physics.CapsuleCast(transform.position, lPoint2, lPlayerRadius, moveDirZ, lDetectionDistance);
+                if (lHitSomething == false)
+                {
+                    lDirection = moveDirZ;
+                    lCanMove = true;
+                }
+                else
+                {
+                    lDirection = Vector3.zero;
+                    lCanMove = false;
+                }
+            }
+        }
+
+
         if (lCanMove == true)
         {
-            float lMoveDistance = SpeedInMeterPerSecond * Time.deltaTime;
-            transform.position = transform.position + (lDirection * lMoveDistance);
+            //float lMoveDistance = SpeedInMeterPerSecond * Time.deltaTime;
+            transform.position = transform.position + (lDirection * lDetectionDistance);
 
             // # Déplacement du Player
             // on récupère la position actuelle du Player et on lui ajoute la direction multipliée par la moveDistance
