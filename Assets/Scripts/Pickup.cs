@@ -30,7 +30,7 @@ public class Pickup : MonoBehaviour
     void Start()
     {
         // place l'objet en utilisant la data de l'objet
-        transform.position = ItemData.ItemPosition;
+        //transform.position = ItemData.ItemPosition;
         
         //Mesh myMesh = Instantiate(ItemData.ItemMeshFilter);
         //GetComponent<MeshFilter>().sharedMesh = myMesh;

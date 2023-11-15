@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerControllerTankMode : MonoBehaviour
 {
     public float SpeedInMeterPerSecond = 6.0f;
     public float RotationSpeedInDegreePerSecond = 15.0f;
@@ -29,11 +29,11 @@ public class Player : MonoBehaviour
         // 1ere version de la detection de collision
         float lDetectionDistance = SpeedInMeterPerSecond * Time.deltaTime; // on calcule le prochain déplacement du joueur
         float lPlayerRadius = .5f; // le joueur a un rayon de 50cm
-        Vector3 lPoint2 = transform.position + (Vector3.up * 1.8f); // capsule de 1.8m de haut
+        Vector3 lPoint2 = transform.position + (Vector3.up * 1.8f);
         bool lHitSomething = Physics.CapsuleCast(transform.position, lPoint2, lPlayerRadius, lDirection, out RaycastHit raycastHit, lDetectionDistance);
 
         // visualisation du rayon de détection
-        //Debug.DrawRay(lPoint2, lDirection * lPlayerRadius, Color.yellow, 1/60);
+        //Debug.DrawRay(lDetectionOrigin, lDirection * lDetectionDistance, Color.yellow, 1/60);
 
         // on peut bouger si on a rien touché ou si on a touché un trigger
         bool lCanMove = (lHitSomething == false) || (raycastHit.collider.isTrigger == true);
