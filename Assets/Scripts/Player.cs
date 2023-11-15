@@ -27,10 +27,14 @@ public class Player : MonoBehaviour
 
         // # Détection de collision
         // 1ere version de la detection de collision
-        float lDetectionDistance = .8f;
-        Vector3 lDectionOrigin = transform.position;
-        lDectionOrigin.y += .5f;
-        bool lHitSomething = Physics.Raycast(lDectionOrigin, lDirection, out RaycastHit raycastHit, lDetectionDistance );
+        float lDetectionDistance = .8f; // rayon de 80cm de long
+        
+        Vector3 lDetectionOrigin = transform.position;
+        lDetectionOrigin.y += .5f;      // on décale le rayon de 50cm vers le haut pour qu'il parte du centre de la capsule
+        bool lHitSomething = Physics.Raycast(lDetectionOrigin, lDirection, out RaycastHit raycastHit, lDetectionDistance );
+        // visualisation du rayon de détection
+        //Debug.DrawRay(lDetectionOrigin, lDirection * lDetectionDistance, Color.yellow, 1/60);
+
 
         // on peut bouger si on a rien touché ou si on a touché un trigger
         bool lCanMove = (lHitSomething == false) || (raycastHit.collider.isTrigger == true);
