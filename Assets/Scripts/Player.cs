@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerControllerTankMode : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public float SpeedInMeterPerSecond = 6.0f;
     public float RotationSpeedInDegreePerSecond = 15.0f;

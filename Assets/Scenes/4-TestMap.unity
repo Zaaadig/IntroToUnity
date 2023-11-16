@@ -6130,9 +6130,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1743817859}
-  - component: {fileID: 1743817858}
-  - component: {fileID: 1743817861}
   - component: {fileID: 1743817860}
+  - component: {fileID: 1743817862}
+  - component: {fileID: 1743817861}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6140,21 +6140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1743817858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743817857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5da50e22a533fa442ac29a8cc623e532, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpeedInMeterPerSecond: 6
-  RotationSpeedInDegreePerSecond: 15
-  _playerVisual: {fileID: 483739036}
 --- !u!4 &1743817859
 Transform:
   m_ObjectHideFlags: 0
@@ -6188,7 +6173,7 @@ CharacterController:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
@@ -6205,6 +6190,21 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743817857}
   m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da50e22a533fa442ac29a8cc623e532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedInMeterPerSecond: 6
+  RotationSpeedInDegreePerSecond: 15
+  _playerVisual: {fileID: 483739036}
+--- !u!114 &1743817862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1743817857}
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6f903cbbe4b47f46a8207ae036bbe28, type: 3}
   m_Name: 

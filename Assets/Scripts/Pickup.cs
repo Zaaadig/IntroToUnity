@@ -21,7 +21,7 @@ public class Pickup : MonoBehaviour
             Destroy(gameObject);
             Instantiate(ParticleSystem, transform.position, Quaternion.identity);
 
-            VirtualCamera.enabled = false;
+            //VirtualCamera.enabled = false;
         }
     }
 
