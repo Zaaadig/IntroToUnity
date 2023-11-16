@@ -15,7 +15,7 @@ public struct FWeapon{ }
 - [OnScreenControls](https://kenney.nl/assets/onscreen-controls)
 - [PrototypeTextures](https://kenney.nl/assets/prototype-textures)
 
-## Barking Dog free modular asset
+## Barking Dog Assets
 - [3D Free Modular Kit](https://assetstore.unity.com/packages/3d/environments/3d-free-modular-kit-85732)
 
 Educational project for Lisaa 2023/2024
