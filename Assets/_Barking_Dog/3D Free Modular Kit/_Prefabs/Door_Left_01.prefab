@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 2355204}
   - component: {fileID: 6507386}
   m_Layer: 0
-  m_Name: Door_Left_01
+  m_Name: Door_Left_visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &419594
 Transform:
@@ -116,6 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 421664}
   - component: {fileID: 8249556}
+  - component: {fileID: 9170806830964148087}
   m_Layer: 0
   m_Name: Door_Left_01
   m_TagString: Untagged
@@ -235,3 +236,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &9170806830964148087
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192030}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 611e3a9858e3dca429fdd238b75e1a1e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
