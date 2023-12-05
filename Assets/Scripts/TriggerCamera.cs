@@ -6,12 +6,17 @@ using UnityEngine.UIElements;
 [SelectionBase]
 public class TriggerCamera : MonoBehaviour
 {
-    public CinemachineVirtualCamera VirtualCamera;
     public GameObject CameraPosition;
+    private CinemachineVirtualCamera _virtualCamera;
+
+    private void Awake()
+    {
+        _virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        VirtualCamera.transform.position = CameraPosition.transform.position;
-        VirtualCamera.transform.rotation = CameraPosition.transform.rotation;
+        _virtualCamera.transform.position = CameraPosition.transform.position;
+        _virtualCamera.transform.rotation = CameraPosition.transform.rotation;
     }
 }
